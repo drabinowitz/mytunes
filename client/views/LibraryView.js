@@ -5,6 +5,10 @@ var LibraryView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+    //rerender on song play
+    this.collection.on('play',function(){
+      this.render()
+    },this);
   },
 
   render: function(){

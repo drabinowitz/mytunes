@@ -30,4 +30,11 @@ describe("LibraryView", function() {
     expect(view.$el.children().length).to.equal(2);
     expect(view.$el.children()[0].tagName).to.equal('TH');
   });
+
+  it('should rerender on song play to accomodate counting plays', function(){
+    sinon.spy(LibraryView.prototype, 'render');
+    view = new LibraryView({collection: fakeSongs});
+    fakeSongs.at(0).play();
+    expect(view.render).to.have.been.called;
+  });
 });

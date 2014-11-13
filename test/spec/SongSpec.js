@@ -13,6 +13,7 @@ describe('SongModel', function() {
   describe('play', function() {
     it('triggers a "play" event', function() {
       model.play();
+      expect(model.get('timesPlayed')).to.equal(1);
       expect(model.trigger).to.have.been.calledWith('play', model);
     });
   });
